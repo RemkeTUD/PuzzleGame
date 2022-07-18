@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -253,4 +254,18 @@ public class PlayerController : MonoBehaviour
         }
         return res.Count > 0;
     }
+
+    public void OnTriggerEnter2DFirstTile(Collider2D collision)
+    {
+        if(collision.tag == "FTKilling")
+        {
+            die();
+        }
+    }
+
+    void die()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
 }
